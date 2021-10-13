@@ -14,11 +14,11 @@ def destroy_connection(blocking_connection):
 
 def create_channel(blocking_connection):
     channel = blocking_connection.channel()
+    # Declare Channel with Fanout Exchange Type
     channel.exchange_declare(exchange=environ['rabbitmq_exchange'], exchange_type='fanout')
     return channel
 
 
-# Press the green button in the gutter to run the script.
 def publish_message(body):
     connection = create_connection()
     channel = create_channel(connection)
