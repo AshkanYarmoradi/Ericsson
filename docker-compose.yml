@@ -1,0 +1,36 @@
+version: '3'
+services:
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    hostname: "rabbitmq"
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+      RABBITMQ_DEFAULT_USER: "admin"
+      RABBITMQ_DEFAULT_PASS: "@Ericsson2021"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    labels:
+      NAME: "rabbitmq"
+  server:
+    image: "ashkanyarmoradi/ericsson-server"
+    command: tail -F anything
+    environment:
+      override_rabbitmq: true
+      rabbitmq_username: "admin"
+      rabbitmq_password: "@Ericsson2021"
+      rabbitmq_host: "rabbitmq"
+      rabbitmq_port: 5672
+      rabbitmq_exchange: "main"
+    labels:
+      NAME: "server"
+  client:
+    image: "ashkanyarmoradi/ericsson-client"
+    environment:
+      RabbitMq:Username: "admin"
+      RabbitMq:Password: "@Ericsson2021"
+      RabbitMq:Host: "rabbitmq"
+      RabbitMq:Port: 5672
+      RabbitMq:Exchange: "main"
+    restart: always
