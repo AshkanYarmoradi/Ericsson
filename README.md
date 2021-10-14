@@ -1,5 +1,5 @@
 # Ericsson assignment project
-![](/images/logo.PNG)
+![](/images/Logo.PNG)
 ### This repository is include two applications called Server and Client
 
 - Server Application is a message publisher to Message-Bus wich has written by Python
