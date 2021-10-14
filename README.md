@@ -2,16 +2,16 @@
 ![](/images/logo.PNG)
 ### This repository is include two applications called Server and Client
 
-- Server Application is publisher message to Message Bus and write by Python
-- Client Application is consumer of messages that publish in Exchange and write by .net 5
+- Server Application is a message publisher to Message-Bus wich has written by Python
+- Client Application is a message consumer  and written by .net 5
 - Comminucation pattern between two application is Pub/Sub so we can have multiple client instance
 - RabbitMQ has messagebus role in the system
-- These two application are available on DockerHub and have ability to build simply on local By the Dockerfile and Docker-Compose
+- These two application are available on DockerHub and also have the ability to simply build image on local By the Dockerfile and Docker-Compose
 
 
 ## - How to lunch
 
-Base on previous explanition we have multiple option to run these application
+Base on previous explanition we have multiple option to run these applications
 
 <details>
   <summary>
@@ -59,8 +59,10 @@ services:
 </pre>
 </details>
 
+<br>
+
 ### - Pull Images [Server, client and RabbitMQ]
-In the root directory just execute below command (all the setting for connecting between applications store in environment setting of docker-compose file)
+In the root directory just execute command in below (all the setting for connecting between applications store in environment setting of docker-compose file)
 
 ```docker compose up```
 
@@ -76,25 +78,25 @@ In the root directory just execute below command (all the setting for connecting
 
 ### - Pull Images [Server, client] without pulling RabbitMQ Image
 
-In this option because of being comfort for don't pull the rabbitmq I create a RabbitMQ server and applications connect to that, as you can see in the docker-compose file we don't add any environment setting, please execute the below command in the root directory
+I create a RabbitMQ server and applications connect to that , so you being comfortable and doesn't need to pull the rabbitmag, as you can see in the docker-compose file we don't need to add any environment setting, please execute the below command in the root directory
 
 ```docker-compose -f docker-compose.min.yml up```
 
 ### - Build Images [Server, client] And Pull RabbitMQ Image
 
-In this option after running below command the docker build two image of the server and client application and pull image of RabbitMQ (As you can see all setting is mapped to application in environment of docker-compose file)
+With this option after running the command in below the docker builds two image of the server and client application and then pull the image of RabbitMQ (As you can see all application's setting is mapped in the environment of docker-compose file)
 
 ```docker-compose -f docker-compose.build.yml up```
 
 ### - Build Images [Server, client] And without pulling RabbitMQ Image
 
-In this option because of being comfort for don't pull the rabbitmq I create a RabbitMQ server and applications connect to that, so when you execute the below command the build of applications happening (as you can see in the docker-compose file we don't add any environment setting)
+With this option when you execute the command in below the application starts to build
 
 ```docker-compose -f docker-compose.build.min.yml up```
 
 ## - How to use application
 
-The client application try to connect to RabbitMQ after the connecting is successfull, the application came up with log, then As you know the server application is should use with interactive option so please go to container host with cmd/bash and execute the bellow command
+The client application try to connect to RabbitMQ after the connection is successfull, the application came up with log, then As you know the server application works in  interactive mood so please go to container host with cmd/bash and execute the bellow command
 
 ```python main.py "Hello"```
 
