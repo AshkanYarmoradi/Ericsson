@@ -1,0 +1,11 @@
+version: '3'
+services:
+  server:
+    build: src/Ericsson.Server/.
+    command: tail -F anything
+    labels:
+      NAME: "server"
+    restart: always
+  client:
+    build: src/Ericsson.Client/.
+    restart: always

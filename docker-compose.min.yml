@@ -1,0 +1,11 @@
+version: '3'
+services:
+  server:
+    image: "ashkanyarmoradi/ericsson-server"
+    command: tail -F anything
+    labels:
+      NAME: "server"
+    restart: always
+  client:
+    image: "ashkanyarmoradi/ericsson-client"
+    restart: always

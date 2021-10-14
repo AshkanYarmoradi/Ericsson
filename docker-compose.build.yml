@@ -15,7 +15,7 @@ services:
       NAME: "rabbitmq"
     restart: always
   server:
-    image: "ashkanyarmoradi/ericsson-server"
+    build: src/Ericsson.Server/.
     command: tail -F anything
     environment:
       override_rabbitmq: true
@@ -28,7 +28,7 @@ services:
       NAME: "server"
     restart: always
   client:
-    image: "ashkanyarmoradi/ericsson-client"
+    build: src/Ericsson.Client/.
     environment:
       RabbitMq:Username: "admin"
       RabbitMq:Password: "@Ericsson2021"
