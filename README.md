@@ -1,5 +1,16 @@
-# Ericsson assignment project
-![](/images/Logo.PNG)
+<table border="0">
+<tr>
+<td> 
+  <img width="95" src="/images/Logo.PNG" /> 
+  
+  [![.NET](https://github.com/AshkanYarmoradi/Ericsson/actions/workflows/dotnet.yml/badge.svg)](https://github.com/AshkanYarmoradi/Ericsson/actions/workflows/dotnet.yml)</td>
+<td>
+<h2># Ericsson assignment project</h2>
+⚠️ Attention ⚠️ *.min.yml Docker file is useless because that server is configured for this case is down right now, You can use docker-compose up!
+ </td>
+</tr>
+</table>
+
 ### This repository is include two applications called Server and Client
 
 - Server Application is a message publisher to Message-Bus wich has written by Python
@@ -64,7 +75,7 @@ services:
 ### - Pull Images [Server, client and RabbitMQ]
 In the root directory just execute command in below (all the setting for connecting between applications store in environment setting of docker-compose file)
 
-```docker compose up```
+```docker-compose up```
 
 <details>
   <summary>
